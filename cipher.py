@@ -1,4 +1,5 @@
 from tkinter import messagebox, simpledialog, Tk
+import pyperclip
 
 def is_even(number):
     return number % 2 == 0
@@ -29,6 +30,10 @@ def swap_letters(message):
     new_message = ''.join(letter_list)
     return new_message
 
+def copy_to_clipboard(message):
+    pyperclip.copy(message)
+    messagebox.showinfo('Success', 'Message copied to clipboard!')
+
 def get_task():
     task = simpledialog.askstring('Task', 'Do you want to encrypt or decrypt?')
     return task
@@ -45,6 +50,9 @@ while True:
         message = get_message()
         encrypted = swap_letters(message)
         messagebox.showinfo('Ciphertext of the secret message is: ', encrypted)
+        copy_choice = messagebox.askyesno('Copy?', 'Do you want to copy this to clipboard?') 
+        if copy_choice: 
+            copy_to_clipboard(encrypted) 
     elif task == 'decrypt':
         message = get_message()
         decrypted = swap_letters(message)
