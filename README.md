@@ -1,8 +1,7 @@
 # Cipher 🔐
 A simple computer app to encrypt or decrypt messages 
 
-⚠️**VERY IMPORTANT!**⚠️
-**This app is insecure with weak encryption! DO NOT trust it to reliably encrypt messages UNTIL issue [#4](https://github.com/DevDude437/cipher/issues/4) is resolved! I'm planning to get this fixed as quickly as possible with a new release. Thank you for understanding.**
+⚠️IMPORTANT: This app's method of securing messages is inherently insecure currently, please avoid using it for serious purposes until this has been fixed
 
 **Please keep in mind that this project is currently in Beta**
 
