@@ -9,7 +9,7 @@ A computer
 Python 3
 
 Basic terminal knowlege
-# Installation (Linux)
+# Installation (Linux & Mac)
 Download the latest release to your `Downloads` Folder
 
 Open the Terminal and navigate to your `Downloads` Folder
