@@ -1,5 +1,9 @@
+from cryptography.fernet import Fernet
 from tkinter import messagebox, simpledialog, Tk
 import pyperclip
+
+encryption_key = Fernet.generate_key()
+cipher_suite = Fernet(encryption_key)
 
 def is_even(number):
     return number % 2 == 0
@@ -30,6 +34,14 @@ def swap_letters(message):
     new_message = ''.join(letter_list)
     return new_message
 
+def encrypt_with_cryptography(message):
+    encrypted_message = cipher_suite.encrypt(message.encode())
+    return encrypted_message.decode()
+
+def decrypt_with_cryptography(encrypted_message):
+    decrypted_message = cipher_suite.decrypt(encrypted_message.encode())
+    return decrypted_message.decode()
+
 def copy_to_clipboard(message):
     pyperclip.copy(message)
     messagebox.showinfo('Success', 'Message copied to clipboard!')
@@ -48,15 +60,18 @@ while True:
     task = get_task()
     if task == 'encrypt':
         message = get_message()
-        encrypted = swap_letters(message)
+        swapped = swap_letters(message)
+        encrypted = encrypt_with_cryptography(swapped)
         messagebox.showinfo('Ciphertext of the secret message is: ', encrypted)
-        copy_choice = messagebox.askyesno('Copy?', 'Do you want to copy this to clipboard?') 
-        if copy_choice: 
-            copy_to_clipboard(encrypted) 
+        copy_choice = messagebox.askyesno('Copy?', 'Do you want to copy this to clipboard?')
+        if copy_choice:
+            copy_to_clipboard(encrypted)
     elif task == 'decrypt':
         message = get_message()
-        decrypted = swap_letters(message)
+        decrypted_crypto = decrypt_with_cryptography(message)
+        decrypted = swap_letters(decrypted_crypto)
         messagebox.showinfo('Plaintext of the secret message is: ', decrypted)
     else:
         break
     root.mainloop
+
