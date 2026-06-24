@@ -1,11 +1,8 @@
 # Cipher 🔐
 A simple computer app to encrypt or decrypt messages 
 
-⚠️IMPORTANT: This app's method of securing messages is inherently insecure currently, please avoid using it for serious purposes until this has been fixed
+**This app is considered Stable now**
 
-**Please keep in mind that this project is currently in Beta**
-
-**NOTE** By no means is this a professional encryption app. It should not be used for personal information, only as a fun tool. The developers assume no responsibility for any personal information that you choose to encrypt with this app.
 # Requirements to install
 A computer
 
